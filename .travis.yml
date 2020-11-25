@@ -10,7 +10,7 @@ env:
     - TAG="$REPO:7.9.1"
 before_script: 
   - cd $BUILD_DIR && chmod +x $BUILD_DIR
-   - docker login quay.io -u $ROBOT_USER -p $ROBOTTOKEN
+  - docker login quay.io -u $ROBOT_USER -p $ROBOTTOKEN
 script: 
   # - docker build $PWD/base/ --tag portainer/base
   - docker build . --tag $TAG
