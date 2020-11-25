@@ -1,6 +1,6 @@
 FROM quay.io/ibmz/alpine:3.12
 RUN pwd && ls
-COPY dist /
+COPY dist dist
 VOLUME /data
 WORKDIR /
 EXPOSE 9000
