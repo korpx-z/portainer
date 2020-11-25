@@ -3,17 +3,17 @@ services:
   - docker
 env:
   global:
-    - TEST_DIR="$PWD"
-    - TEST_SCRIPT="test.sh"
+ #   - TEST_DIR="$PWD"
+ #   - TEST_SCRIPT="test.sh"
     - BUILD_DIR="$PWD/build/linux/"
-    - REPO="quay.io/ibmz/elasticsearch"
+    - REPO="quay.io/ibmz/portainer"
     - TAG="$REPO:7.9.1"
 before_script: 
-  #- cd $TEST_DIR && chmod +x $TEST_SCRIPT
-  # - docker login quay.io -u $ROBOT -p $ROBOT_TOKEN
+  - cd $BUILD_DIR && chmod +x $BUILD_DIR
+   - docker login quay.io -u $ROBOT_USER -p $ROBOTTOKEN
 script: 
   # - docker build $PWD/base/ --tag portainer/base
-  - docker build $BUILD_DIR -f $BUILD_DIR/alpine.Dockerfile --tag $TAG
+  - docker build . --tag $TAG
   #- cd $TEST_DIR && bash $TEST_SCRIPT 
 after_script:
  # - docker push $REPO
